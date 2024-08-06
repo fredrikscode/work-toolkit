@@ -9,6 +9,8 @@ RUN apt-get update && apt-get install -y \
     curl -LO https://mirror.openshift.com/pub/openshift-v4/clients/ocp/stable/openshift-client-linux.tar.gz && \
     tar -zxvf openshift-client-linux.tar.gz && \
     mv oc kubectl /usr/local/bin/ && \
-    rm -f openshift-client-linux.tar.gz
+    rm -f openshift-client-linux.tar.gz && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
 
 CMD ["/bin/bash"]

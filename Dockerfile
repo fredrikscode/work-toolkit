@@ -19,5 +19,6 @@ FROM debian:12.6-slim
 COPY --from=builder /usr/bin/az /usr/bin/az
 COPY --from=builder /usr/local/bin/oc /usr/local/bin/oc
 COPY --from=builder /usr/local/bin/kubectl /usr/local/bin/kubectl
+COPY --from=builder /opt/az /opt/az
 
 CMD ["/bin/bash"]

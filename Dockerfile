@@ -21,12 +21,7 @@ COPY --from=builder /usr/local/bin/oc /usr/local/bin/oc
 COPY --from=builder /usr/local/bin/kubectl /usr/local/bin/kubectl
 COPY --from=builder /opt/az /opt/az
 
-RUN echo -e "\
-    ██████╗░███████╗██╗░░░██╗░█████╗░░█████╗░███╗░░██╗\n\
-    ██╔══██╗██╔════╝██║░░░██║██╔══██╗██╔══██╗████╗░██║\n\
-    ██║░░██║█████╗░░╚██╗░██╔╝██║░░╚═╝██║░░██║██╔██╗██║\n\
-    ██║░░██║██╔══╝░░░╚████╔╝░██║░░██╗██║░░██║██║╚████║\n\
-    ██████╔╝███████╗░░╚██╔╝░░╚█████╔╝╚█████╔╝██║░╚███║\n\
-    ╚═════╝░╚══════╝░░░╚═╝░░░░╚════╝░░╚════╝░╚═╝░░╚══╝" > /etc/motd
+COPY motd /etc/motd
+RUN echo "cat /etc/motd" >> /etc/bash.bashrc
 
 CMD ["/bin/bash"]
